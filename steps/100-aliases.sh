@@ -28,7 +28,10 @@ alias tailpulp='tail -f -n400 /var/log/pulp/pulp.log'
 alias tailgrind='tail -f -n400 /var/log/pulp/grinder.log'
 alias versions='rpm -q katello katello-cli katello-agent pulp candlepin subscription-manager python-rhsm yum'
 
-source /etc/bash_completion.d/katello
+# This may not exist yet on the system because Katello might not be installed
+if [ -f /etc/bash_completion.d/katello ]; then
+    source /etc/bash_completion.d/katello
+fi
 complete -F _katello kk
 complete -F _katello k
 EOF
