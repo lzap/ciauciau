@@ -78,9 +78,11 @@ Here are the options of the ciau script:
     OPTIONS:
       -h    Show this message
       -p    Plan name (see ./plans directory)
-      -e    Evaluate statement before plan file (see plan file for options)
+      -e    Evaluate statement before plan file (see plan file for options) [*]
       -x    Exclude one or more steps from the plan (grep syntax)
-      -i    Include extra steps to the plan (separate by space)
+      -i    Include extra steps to the plan [*]
+
+    [*] - Multiple options possible
 
     EXAMPLES:
 
@@ -113,7 +115,7 @@ To get particular SAM installation or SE installation type:
 
 To install SE/SAM and then upgrade it immediately run:
 
-    ciau -p se -e 'THE_REPO="http://download/xx/zz/2.0/latest/" THE_REPO_UPGRADE="http://xyz/2.1/latest"' -i 600-upgrade.sh
+    ciau -p se -e 'THE_REPO="http://download/xx/zz/2.0/latest/"' -e 'THE_REPO_UPGRADE="http://xyz/2.1/latest"' -i 600-upgrade.sh
 
 To see all available plans open the ./plans directory:
 
