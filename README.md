@@ -51,7 +51,6 @@ Ciao Ciao contains two directories, plans and steps. Let's start with steps:
     499-make-fast.sh
     500-configure-headpin.sh
     500-configure-katello.sh
-    700-cli-tests.sh
     990-enable-services.sh
     990-start-goferd.sh
     990-updatedb.sh
@@ -111,6 +110,10 @@ To get particular SAM installation or SE installation type:
 
     ciau -p sam -e 'THE_REPO="http://download/xx/yy/1.1/latest/"'
     ciau -p se -e 'THE_REPO="http://download/xx/zz/2.0/latest/"'
+
+To install SE/SAM and then upgrade it immediately run:
+
+    ciau -p se -e 'THE_REPO="http://download/xx/zz/2.0/latest/" THE_REPO_UPGRADE="http://xyz/2.1/latest"' -i 600-upgrade.sh
 
 To see all available plans open the ./plans directory:
 

@@ -3,8 +3,9 @@
 # load template plan
 . $PLANSDIR/katello-template
 
-export THE_REPO_NAME=sam
+export THE_REPO_NAME=se
 export THE_REPO=${THE_REPO:-http://localhost/set/variable/THE_REPO}
+export THE_REPO_UPGRADE=${THE_REPO_UPGRADE:-http://localhost/set/THE_REPO_UPGRADE}
 
 # add steps specific to this plan
 PLAN=(${PLAN[@]}
