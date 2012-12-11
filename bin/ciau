@@ -13,22 +13,24 @@ Ciau Ciau provisioning script
 OPTIONS:
   -h    Show this message
   -p    Plan name (see ./plans directory)
-  -e    Evaluate statement before plan file (see plan file for options)
+  -e    Evaluate statement before plan file (see plan file for options) [*]
   -x    Exclude one or more steps from the plan (grep syntax)
-  -i    Include extra steps to the plan (separate by space)
+  -i    Include extra steps to the plan [*]
+
+[*] - Multiple parameters can be passed
 
 EXAMPLES:
 
   $0 -p nightly
-  $0 -p nightly -x '(300|301)' -i 200-my-step.sh
-  $0 -p nightly -e 'MIRROR=http://abc/nightly EPEL=http://xyz/pup/epel'
+  $0 -p nightly -x '(300|301)' -i 200-my-step.sh -i xyz.sh
+  $0 -p nightly -e 'MIRROR=http://abc/nightly' -e "EPEL=http://xyz/pup/epel"
 
 USAGE
 }
 
 EVAL=""
-EXCLUDE="_NOT_EXISTING_"
 INCLUDE=""
+EXCLUDE="_NOT_EXISTING_"
 
 while getopts "hp:e:x:i:" opt; do
   case $opt in
@@ -36,13 +38,13 @@ while getopts "hp:e:x:i:" opt; do
       PLANFILE="$OPTARG"
       ;;
     e)
-      EVAL="$OPTARG"
+      EVAL="$EVAL $OPTARG"
       ;;
     x)
       EXCLUDE="$OPTARG"
       ;;
     i)
-      INCLUDE="$OPTARG"
+      INCLUDE="$INCLUDE $OPTARG"
       ;;
     h)
       usage
