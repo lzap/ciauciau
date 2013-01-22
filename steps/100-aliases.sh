@@ -28,6 +28,8 @@ alias tailtom='tail -f -n400 /var/log/tomcat6/catalina.out'
 alias tailpulp='tail -f -n400 /var/log/pulp/pulp.log'
 alias tailgrind='tail -f -n400 /var/log/pulp/grinder.log'
 alias versions='rpm -q katello katello-cli katello-agent pulp candlepin subscription-manager python-rhsm yum'
+alias forceinstall='rpm -Uvh --force /root/rpmbuild/RPMS/noarch/*rpm'
+alias memory='curl -k -u admin:admin https://localhost/katello/api/status/memory'
 
 # This may not exist yet on the system because Katello might not be installed
 if [ -f /etc/bash_completion.d/katello ]; then
