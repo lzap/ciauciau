@@ -17,6 +17,7 @@ export ADDITIONAL_PACKAGES=${ADDITIONAL_PACKAGES:-bash-completion screen git mc}
 export KATELLO_CONFIGURE_OPTIONS=${KATELLO_CONFIGURE_OPTIONS:--b --es-min-mem=64m --es-max-mem=64m}
 
 export PLAN=(
+002-wait-for-network.sh
 010-disable-iptables.sh
 100-aliases.sh
 499-make-fast.sh
