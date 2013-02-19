@@ -1,7 +1,7 @@
 FEDORA_VERSION=$(rpm -q --queryformat '%{VERSION}' fedora-release)
 REDHAT_VERSION=$(rpm -q --queryformat '%{VERSION}' redhat-release-server)
 
-if [ "$FEDORA_VERSION" == "16" -o "$FEDORA_VERSION" == "17" ]; then
+if [ -f /etc/fedora-release ]; then
 cat > /etc/yum.repos.d/candlepin.repo <<EOF
 [candlepin]
 name=candlepin
