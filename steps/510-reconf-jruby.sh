@@ -1,7 +1,7 @@
 VERSION=1.7.2
 wget http://jruby.org.s3.amazonaws.com/downloads/$VERSION/jruby-bin-$VERSION.tar.gz
 tar -xzf jruby-bin-$VERSION.tar.gz
-echo 'export PATH=/root/jruby-$VERSION/bin:$PATH' >> .bashrc
+echo "export PATH=/root/jruby-$VERSION/bin:\$PATH" >> .bashrc
 source .bashrc
 jruby -S gem install bundler bundler_ext activerecord-jdbcpostgresql-adapter regin
 pushd /usr/share/katello
