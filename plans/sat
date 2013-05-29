@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# load template plan
+. $PLANSDIR/katello-template
+
+export THE_REPO_NAME=se
+export THE_REPO=${THE_REPO:-http://localhost/set/variable/THE_REPO}
+export THE_REPO_UPGRADE=${THE_REPO_UPGRADE:-http://localhost/set/THE_REPO_UPGRADE}
+
+# add steps specific to this plan
+PLAN=(${PLAN[@]}
+010-disable-selinux.sh
+300-setup-one-repo.sh
+400-install-katello-foreman.sh
+500-configure-sat.sh
+)
