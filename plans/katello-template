@@ -13,7 +13,7 @@ else
 fi
 export KATELLO_REPO_BASEURL="$MIRROR/releases/yum/$KATELLO_VERSION"
 
-export ADDITIONAL_PACKAGES=${ADDITIONAL_PACKAGES:-bash-completion screen git mc}
+export ADDITIONAL_PACKAGES=${ADDITIONAL_PACKAGES:-bash-completion screen git mc rxvt-unicode-256color}
 export KATELLO_CONFIGURE_OPTIONS=${KATELLO_CONFIGURE_OPTIONS:--b --es-min-mem=64m --es-max-mem=64m}
 
 export PLAN=(
