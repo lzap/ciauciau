@@ -1,6 +1,6 @@
 #!/bin/bash
 export THE_REPO_NAME=${THE_REPO_NAME:-foreman-extra}
-export THE_REPO=${THE_REPO_NAME:-http://lzap.fedorapeople.org/fakerepos/empty/}
+export THE_REPO=${THE_REPO:-http://lzap.fedorapeople.org/fakerepos/empty/}
 
 export PLAN=(
 002-wait-for-network.sh
