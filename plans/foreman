@@ -1,0 +1,18 @@
+#!/bin/bash
+export THE_REPO_NAME=${THE_REPO_NAME:-foreman-extra}
+export THE_REPO=${THE_REPO_NAME:-http://lzap.fedorapeople.org/fakerepos/empty/}
+
+export PLAN=(
+002-wait-for-network.sh
+010-disable-iptables.sh
+100-aliases.sh
+499-make-fast.sh
+499-listen-all.sh
+990-enable-services.sh
+990-updatedb.sh
+999-ping.sh
+300-setup-one-repo.sh
+400-install-foreman.sh
+500-configure-foreman.sh
+)
+
