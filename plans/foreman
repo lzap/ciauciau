@@ -11,6 +11,7 @@ export PLAN=(
 990-enable-services.sh
 990-updatedb.sh
 999-ping.sh
+300-setup-epel.sh
 300-setup-one-repo.sh
 400-install-foreman.sh
 500-configure-foreman.sh

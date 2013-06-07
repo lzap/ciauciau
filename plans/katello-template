@@ -20,6 +20,7 @@ export PLAN=(
 002-wait-for-network.sh
 010-disable-iptables.sh
 100-aliases.sh
+300-setup-epel.sh
 499-make-fast.sh
 499-listen-all.sh
 990-enable-services.sh

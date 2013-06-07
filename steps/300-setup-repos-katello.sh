@@ -61,13 +61,6 @@ baseurl=$KATELLO_REPO_BASEURL/RHEL/6/\$basearch/
 enabled=1
 gpgcheck=0
 EOF
-cat > /etc/yum.repos.d/epel.repo <<EOF
-[epel]
-name=epel
-baseurl=$EPEL/6/\$basearch
-enabled=1
-gpgcheck=0
-EOF
 fi
 
 yum makecache
