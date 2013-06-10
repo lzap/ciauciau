@@ -1,3 +1,6 @@
+# this file is installed by foreman-release rpm
+rm -f /etc/yum.repos.d/foreman.repo
+
 puppet apply --modulepath /usr/share/foreman-installer --verbose <<EOS
 \$osmajor = regsubst(\$::operatingsystemrelease, '\..*', '')
 yumrepo { "foreman-nightly":
