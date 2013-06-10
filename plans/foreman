@@ -1,5 +1,7 @@
 #!/bin/bash
 export NIGHTLY=${NIGHTLY:-no}
+export MIRROR=${MIRROR:-http://fedorapeople.org/groups/katello}
+
 
 PLAN=(
 002-wait-for-network.sh

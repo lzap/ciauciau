@@ -1,9 +1,13 @@
-puppet apply --modulepath /usr/share/foreman-installer --verbose <<'EOS'
+puppet apply --modulepath /usr/share/foreman-installer --verbose <<EOS
+\$osmajor = regsubst(\$::operatingsystemrelease, '\..*', '')
 yumrepo { "foreman-nightly":
-  baseurl  => "http://koji.katello.org/releases/yum/foreman-nightly/RHEL/6/x86_64/",
-    gpgcheck => 0,
-  } ->
-  class {'puppet':
+  baseurl => \$::operatingsystem ? {
+    fedora  => "$MIRROR/releases/yum/foreman-nightly/Fedora/\${::operatingsystemrelease}/x86_64/",
+    default => "$MIRROR/releases/yum/foreman-nightly/RHEL/\${osmajor}/x86_64/",
+  },
+  gpgcheck => 0,
+} ->
+class {'puppet':
 } ->
 class {'puppet::server':
 } ->
