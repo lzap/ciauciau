@@ -1,1 +1,1 @@
-echo foreman_installer | puppet apply --modulepath /usr/share/foreman-installer
+echo include foreman_installer | puppet apply --modulepath /usr/share/foreman-installer --verbose
