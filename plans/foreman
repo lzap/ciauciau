@@ -1,15 +1,24 @@
 #!/bin/bash
-export THE_REPO_NAME=${THE_REPO_NAME:-foreman-extra}
-export THE_REPO=${THE_REPO:-http://lzap.fedorapeople.org/fakerepos/empty/}
+export NIGHTLY=${NIGHTLY:-no}
 
-export PLAN=(
+PLAN=(
 002-wait-for-network.sh
 010-disable-iptables.sh
 100-aliases.sh
 300-setup-epel.sh
 300-setup-one-repo.sh
 400-install-foreman.sh
-500-configure-foreman.sh
 990-updatedb.sh
 )
 
+if [ "$NIGHTLY" == "no" ]; then
+  PLAN=(${PLAN[@]}
+  500-configure-foreman.sh
+  )
+else
+  PLAN=(${PLAN[@]}
+  500-configure-foreman-nightly.sh
+  )
+fi
+
+export PLAN
