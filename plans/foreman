@@ -2,13 +2,11 @@
 export NIGHTLY=${NIGHTLY:-no}
 export MIRROR=${MIRROR:-http://fedorapeople.org/groups/katello}
 
-
 PLAN=(
 002-wait-for-network.sh
 010-disable-iptables.sh
 100-aliases.sh
 300-setup-epel.sh
-300-setup-one-repo.sh
 400-install-foreman.sh
 990-updatedb.sh
 )
